@@ -8,3 +8,32 @@ https://common.recitty.com/geoserver/manlleu/wms?VERSION=1.1.0&FORMAT=image%2Fpn
 
 
 https://common.recitty.com/geoserver/manlleu/wfs?VERSION=1.1.0&FORMAT=image%2Fpng
+
+
+public concatUrlWms():string{
+        // retorna la url de wms amb tots els paramentres concatenats.
+        let result_url;
+       
+        let url_wms=this.config.urlWms;
+        let params_version=this.config.paramsWmsVersion;
+        let params_format= this.config.paramsWmsFormat;
+        let params_transparent = this.config.paramsWmsTransparent;
+
+        return result_url= url_wms+'VERSION'+params_version+'&FORMAT='+params_format+'&TRANSPARENT='+params_transparent;
+        
+
+    }
+
+
+    public concatUrlWfs():string{
+
+        let result_url;
+
+        let url_wfs=this.config.urlWfs;
+        let params_version=this.config.paramsWfsVersion;
+        let output_format=this.config.paramsWfsOutputFormat;
+
+        return result_url= url_wfs+'VERSION'+params_version+'&FORMAT='+output_format;
+
+
+    }
