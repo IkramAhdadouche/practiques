@@ -39,3 +39,31 @@
             ]
         }
     ]
+
+        public getServices():any[]{
+        //tots els paramtre de l'array de services (cada parametre de cada posició)
+        return this.appConfig.services;
+    }
+
+    public getLayers():any[]{
+        return this.appConfig.layers;
+    }
+
+    public getUrlByIndex(index:number):string | null{
+        //a partir d'un index (posicio) retornar la url
+        const services = this.getServices();
+        if(index >=0 && index <services.length){
+            return services[index].url;
+        }
+        return null; // si no existeix retornar null
+    }
+
+    public getParamsByIndex(index:number):any | null {
+        //de cada servei obtenir el seus parametres que sera concatenats
+        const services = this.getServices();
+        if(index>=0 && index < services.length){
+            return services[index].params;
+        }
+        return null; // si no existeix retornar null
+
+    }
